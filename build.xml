@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<project name="rezalib" default="package-jar">  
+	<!--input
+	    message="Select the deployment environment (dev,prod)"
+	    validargs="dev,prod"
+	    addproperty="deploy.env"/-->
+	
+	<target name="package-jar" description="package the jar">
+		<delete file="rezalib.jar"/>  	
+		<manifest file="MANIFEST.MF">
+		        <attribute name="Implementation-Version" 
+		                     value="1.6"/> 
+		 </manifest>
+
+		<jar destfile="rezalib.jar" excludes="rezalib.jar" manifest="MANIFEST.MF">
+			<fileset dir="bin" includes="**/*"/>
+							<!-- **\.* means every file starting with a dot -->
+			
+		</jar>
+	</target>
+</project> 
